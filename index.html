@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesha Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Cesha Cafe</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Cesha Cafe</h1>
+        <p>Modern, Elegant, and Professional Café Experience</p>
+        <button onclick="scrollToSection('menu')">View Menu</button>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://files.catbox.moe/19nws0.jpg" alt="Coffee">
+                <h3>Cappuccino</h3>
+                <p>Rp 20.000</p>
+                <div class="qty-control">
+                    <button onclick="ubahJumlah('Cappuccino', 20000, -1)">-</button>
+                    <span id="qty-Cappuccino">0</span>
+                    <button onclick="ubahJumlah('Cappuccino', 20000, 1)">+</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://files.catbox.moe/rdqabu.jpg" alt="Latte">
+                <h3>Latte</h3>
+                <p>Rp 25.000</p>
+                <div class="qty-control">
+                    <button onclick="ubahJumlah('Latte', 25000, -1)">-</button>
+                    <span id="qty-Latte">0</span>
+                    <button onclick="ubahJumlah('Latte', 25000, 1)">+</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://files.catbox.moe/k3djln.jpg" alt="Dessert">
+                <h3>Green Tea</h3>
+                <p>Rp 15.000</p>
+                <div class="qty-control">
+                    <button onclick="ubahJumlah('Green Tea', 15000, -1)">-</button>
+                    <span id="qty-Green Tea">0</span>
+                    <button onclick="ubahJumlah('Green Tea', 15000, 1)">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Buat Pesanan -->
+        <div style="text-align:center; margin-top: 2rem;">
+            <div class="menu-button">
+                <button onclick="buatPesanan()">Buat Pesanan & Cetak Struk</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>📍 Jl. Kopi No. 123, Jakarta | ☎ +62 812-3456-7890</p>
+        <p>&copy; 2025 Cesha Cafe. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
