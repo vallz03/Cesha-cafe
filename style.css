@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f5e6d3; /* Warna latte (krem kopi susu) */
+    color: #4b3f32; /* Warna teks coklat tua */
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #6b4f3b; /* Coklat kopi */
+    color: #fff;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('https://files.catbox.moe/u4mm4u.jpg'); /* Ganti dengan gambar latte */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    max-height: 350vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* Agar teks kontras di atas gambar */
+    backdrop-filter: brightness(0.85); /* Sedikit gelapkan supaya teks terbaca */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero button {
+    background: #c68b59; /* Warna latte yang lebih gelap */
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.hero button:hover {
+    background: #a97446;
+}
+
+/* Menu & Blog Sections */
+.menu, .blog {
+    padding: 2rem;
+    text-align: center;
+}
+
+.menu-grid, .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.menu-item, article {
+    background: #fff8f0; /* Warna latte yang lebih terang */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover, article:hover {
+    transform: scale(1.03);
+}
+
+.menu-item img, article img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #6b4f3b;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* Button */
+.menu-item button {
+  display: inline-block; /* Agar bisa diberi padding dan margin */
+  padding: 10px 20px; /* Ruang di dalam tombol */
+  background-color: #007bff; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  text-decoration: none; /* Hapus garis bawah pada link */
+  border: none; /* Hapus border default */
+  border-radius: 5px; /* Membuat sudut tombol lebih halus */
+  cursor: pointer; /* Mengubah kursor menjadi pointer saat diarahkan */
+  font-size: 16px; /* Ukuran teks */
+  font-weight: bold; /* Membuat teks lebih tebal */
+  text-align: center; /* Pusatkan teks */
+}
+.menu-item button:hover {
+  background-color: #0056b3; /* Warna latar belakang yang lebih gelap */
+  /* Atur warna lain jika diinginkan, misalnya */
+  /* color: yellow; */
+}
+.menu-item button{
+  /* ... (properti lain) ... */
+  transition: background-color 0.3s ease; /* Transisi warna selama 0.3 detik */
+}
+
+/* Button cetak struk */
+.menu-button button {
+  display: inline-block; /* Agar bisa diberi padding dan margin */
+  padding: 10px 20px; /* Ruang di dalam tombol */
+  background-color: #007bff; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  text-decoration: none; /* Hapus garis bawah pada link */
+  border: none; /* Hapus border default */
+  border-radius: 5px; /* Membuat sudut tombol lebih halus */
+  cursor: pointer; /* Mengubah kursor menjadi pointer saat diarahkan */
+  font-size: 16px; /* Ukuran teks */
+  font-weight: bold; /* Membuat teks lebih tebal */
+  text-align: center; /* Pusatkan teks */
+}
+.menu-button button:hover {
+  background-color: #0056b3; /* Warna latar belakang yang lebih gelap */
+  /* Atur warna lain jika diinginkan, misalnya */
+  /* color: yellow; */
+}
+.menu-button button{
+  /* ... (properti lain) ... */
+  transition: background-color 0.3s ease; /* Transisi warna selama 0.3 detik */
+}
+.qty-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.qty-control button {
+    background: #6b4f3b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.qty-control button:hover {
+    background: #a97446;
+}
+
+.qty-control span {
+    min-width: 20px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
