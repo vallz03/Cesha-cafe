@@ -1,81 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesha Cafe</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cesha Cafe</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Cesha Cafe</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">Cesha Cafe</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#laporan">Laporan</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Welcome to Cesha Cafe</h1>
-        <p>Modern, Elegant, and Professional Cesha Cafe</p>
-        <button onclick="scrollToSection('menu')">View Menu</button>
-    </section>
+  <section class="hero" id="home">
+    <h1>Welcome to Cesha Cafe</h1>
+    <p>Modern, Elegant, and Professional Cesha Cafe</p>
+    <button onclick="scrollToSection('menu')">View Menu</button>
+  </section>
 
-    <!-- Menu Section -->
-    <section class="menu" id="menu">
-        <h2>Our Menu</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://files.catbox.moe/19nws0.jpg" alt="Coffee">
-                <h3>Cappuccino</h3>
-                <p>Rp 20.000</p>
-                <div class="qty-control">
-                    <button onclick="ubahJumlah('Cappuccino', 20000, -1)">-</button>
-                    <span id="qty-Cappuccino">0</span>
-                    <button onclick="ubahJumlah('Cappuccino', 20000, 1)">+</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="https://files.catbox.moe/rdqabu.jpg" alt="Latte">
-                <h3>Latte</h3>
-                <p>Rp 25.000</p>
-                <div class="qty-control">
-                    <button onclick="ubahJumlah('Latte', 25000, -1)">-</button>
-                    <span id="qty-Latte">0</span>
-                    <button onclick="ubahJumlah('Latte', 25000, 1)">+</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="https://files.catbox.moe/k3djln.jpg" alt="Dessert">
-                <h3>Green Tea</h3>
-                <p>Rp 15.000</p>
-                <div class="qty-control">
-                    <button onclick="ubahJumlah('Green Tea', 15000, -1)">-</button>
-                    <span id="qty-Green Tea">0</span>
-                    <button onclick="ubahJumlah('Green Tea', 15000, 1)">+</button>
-                </div>
-            </div>
+  <section class="menu" id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://files.catbox.moe/19nws0.jpg" alt="Coffee">
+        <h3>Cappuccino</h3>
+        <p>Rp 20.000</p>
+        <div class="qty-control">
+          <button onclick="ubahJumlah('Cappuccino', 20000, -1)">-</button>
+          <span id="qty-Cappuccino">0</span>
+          <button onclick="ubahJumlah('Cappuccino', 20000, 1)">+</button>
         </div>
+      </div>
 
-        <!-- Tombol Buat Pesanan -->
-        <div style="text-align:center; margin-top: 2rem;">
-            <div class="menu-button">
-                <button onclick="buatPesanan()">Buat Pesanan & Cetak Struk</button>
-            </div>
+      <div class="menu-item">
+        <img src="https://files.catbox.moe/rdqabu.jpg" alt="Latte">
+        <h3>Latte</h3>
+        <p>Rp 25.000</p>
+        <div class="qty-control">
+          <button onclick="ubahJumlah('Latte', 25000, -1)">-</button>
+          <span id="qty-Latte">0</span>
+          <button onclick="ubahJumlah('Latte', 25000, 1)">+</button>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <p>📍 Jl. Kopi No. 123, Jakarta | <a href="https://wa.me/6281234567890" class="wa-link">☎ +62 812-3456-7890</a></p>
-        <p>&copy; 2025 Cesha Cafe. All rights reserved.</p>
-    </footer>
+      <div class="menu-item">
+        <img src="https://files.catbox.moe/k3djln.jpg" alt="Green Tea">
+        <h3>Green Tea</h3>
+        <p>Rp 15.000</p>
+        <div class="qty-control">
+          <button onclick="ubahJumlah('Green Tea', 15000, -1)">-</button>
+          <span id="qty-Green_Tea">0</span>
+          <button onclick="ubahJumlah('Green Tea', 15000, 1)">+</button>
+        </div>
+      </div>
+    </div>
 
-    <script src="script.js"></script>
+    <div style="text-align:center; margin-top: 2rem;">
+      <div class="menu-button">
+        <button onclick="buatPesanan()">Buat Pesanan & Cetak Struk</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="pendapatan" id="laporan">
+    <h3>📊 Laporan Pendapatan</h3>
+    <div class="filter-group">
+      <label for="filter">Filter: </label>
+      <select id="filter" onchange="ubahFilter()">
+        <option value="harian">Harian</option>
+        <option value="bulanan">Bulanan</option>
+        <option value="tahunan">Tahunan</option>
+      </select>
+      <input type="date" id="filterTanggal" onchange="tampilkanPendapatan()">
+      <input type="month" id="filterBulan" onchange="tampilkanPendapatan()" style="display:none">
+      <input type="number" id="filterTahun" min="2020" max="2100" placeholder="Tahun" onchange="tampilkanPendapatan()" style="display:none">
+    </div>
+    <p><b>Total Pendapatan:</b> Rp <span id="totalPendapatan">0</span></p>
+  </section>
+
+  <footer id="contact">
+    <p>📍 Jl. Kopi No. 123, Jakarta | 
+      <a href="https://wa.me/6281234567890" class="wa-link">☎ +62 812-3456-7890</a>
+    </p>
+    <p>&copy; 2025 Cesha Cafe. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
