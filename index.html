@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,31 +10,34 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 
+  <!-- SheetJS -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
 </head>
 <body>
   <header>
     <div class="logo">Cesha Cafe</div>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home">Beranda</a></li>
         <li><a href="#menu">Menu</a></li>
-        <li><a href="#laporan">Laporan</a></li>
+        <li><a href="#laporan" onclick="bukaLaporan()">Laporan</a></li>
         <li><a href="#contact">Kontak</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero" id="home">
+  <section id="home">
     <h1>Welcome to Cesha Cafe</h1>
     <p>Modern, Elegant, and Professional Cesha Cafe</p>
-    <button onclick="scrollToSection('menu')">View Menu</button>
+    <button onclick="scrollToSection('menu')">Lihat Menu</button>
   </section>
 
-  <section class="menu" id="menu">
-    <h2>Our Menu</h2>
+  <section id="menu">
+    <h2>☕ Our Menu</h2>
     <div class="menu-grid">
       <div class="menu-item">
-        <img src="https://files.catbox.moe/19nws0.jpg" alt="Coffee">
+        <img src="https://files.catbox.moe/19nws0.jpg" alt="Cappuccino">
         <h3>Cappuccino</h3>
         <p>Rp 20.000</p>
         <div class="qty-control">
@@ -67,36 +70,44 @@
       </div>
     </div>
 
-    <div style="text-align:center; margin-top: 2rem;">
-      <div class="menu-button">
-        <button onclick="buatPesanan()">Buat Pesanan & Cetak Struk</button>
-      </div>
+    <div class="menu-button">
+      <button onclick="buatPesanan()">🧾 Buat Pesanan & Cetak Struk</button>
     </div>
   </section>
 
-  <section class="pendapatan" id="laporan">
-    <h3>📊 Laporan Pendapatan</h3>
-    <div class="filter-group">
-      <label for="filter">Filter: </label>
-      <select id="filter" onchange="ubahFilter()">
-        <option value="harian">Harian</option>
-        <option value="bulanan">Bulanan</option>
-        <option value="tahunan">Tahunan</option>
+  <section id="laporan">
+    <h3>📊 Riwayat Pesanan</h3>
+    <div style="margin-bottom:1rem; text-align:center;">
+      <label for="filter">Filter:</label>
+      <select id="filter" onchange="tampilkanRiwayat()">
+        <option value="all">Semua</option>
+        <option value="hari">Hari Ini</option>
+        <option value="minggu">Minggu Ini</option>
+        <option value="bulan">Bulan Ini</option>
+        <option value="tahun">Tahun Ini</option>
       </select>
-      <input type="date" id="filterTanggal" onchange="tampilkanPendapatan()">
-      <input type="month" id="filterBulan" onchange="tampilkanPendapatan()" style="display:none">
-      <input type="number" id="filterTahun" min="2020" max="2100" placeholder="Tahun" onchange="tampilkanPendapatan()" style="display:none">
+      <button class="filter-btn" onclick="eksporExcel()">📤 Ekspor Excel</button>
     </div>
-    <p><b>Total Pendapatan:</b> Rp <span id="totalPendapatan">0</span></p>
+
+    <table id="tabelRiwayat">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Menu</th>
+          <th>Total (Rp)</th>
+        </tr>
+      </thead>
+      <tbody id="riwayatPesanan"></tbody>
+    </table>
   </section>
 
   <footer id="contact">
-    <p>📍 Jl. Kopi No. 123, Jakarta | 
-      <a href="https://wa.me/6281234567890" class="wa-link">☎ +62 812-3456-7890</a>
+    <p>📍 Jl. Kopi No.123, Jakarta |
+      <a href="https://wa.me/6281234567890">☎ +62 812-3456-7890</a>
     </p>
     <p>&copy; 2025 Cesha Cafe. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
